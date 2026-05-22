@@ -5,17 +5,26 @@ import PackageDescription
 let package = Package(
     name: "BatteryView",
     platforms: [
-        .iOS(.v15),
-        .macOS(.v12),
-        .watchOS(.v8),
-        .tvOS(.v15)
+        .iOS(.v9)
     ],
     products: [
-        .library(name: "BatteryView", targets: ["BatteryView"])
+        .library(name: "BatteryView",    targets: ["BatteryView"]),
+        .library(name: "BatteryViewSUI", targets: ["BatteryViewSUI"]),
     ],
     dependencies: [],
     targets: [
-        .target(name: "BatteryView", dependencies: [], path: "Sources")
+        // UIKit-based battery view (iOS 9+)
+        .target(
+            name: "BatteryView",
+            dependencies: [],
+            path: "Sources/BatteryView"
+        ),
+        // SwiftUI-based battery view (iOS 15+, macOS 12+, tvOS 15+, watchOS 8+)
+        .target(
+            name: "BatteryViewSUI",
+            dependencies: [],
+            path: "Sources/BatteryViewSUI"
+        ),
     ],
     swiftLanguageVersions: [.v5]
 )
