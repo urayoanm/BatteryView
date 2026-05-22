@@ -1,14 +1,17 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.5
 
 import PackageDescription
 
 let package = Package(
     name: "BatteryView",
     platforms: [
-        .iOS(.v9)
+        .iOS(.v15),
+        .macOS(.v12),
+        .watchOS(.v8),
+        .tvOS(.v15)
     ],
     products: [
-        .library( name: "BatteryView", targets: ["BatteryView"])
+        .library(name: "BatteryView", targets: ["BatteryView"])
     ],
     dependencies: [],
     targets: [
